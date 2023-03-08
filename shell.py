@@ -36,15 +36,15 @@ while True:
 			os.chdir(input_stream[1])
 			print('Path updated successfully')
 		except:
-			print('Path does not exist or arguments missing')
-			#os.write(2, f'Path does not exist or arguments missing')
+			#print('Path does not exist or arguments missing')
+			os.write(2, ('Path does not exist or arguments missing').encode())
 		
 	elif '|' in input_stream:
 		print('Attempt to pipe\n')
 		#Used to move data between commands
 		#Command1 -> Command2
 		#Separate both sides of the pipe
-		
+		split_pipe_sides = path.index("|")
 		
 		
 		
