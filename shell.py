@@ -45,6 +45,8 @@ while True:
 		#Command1 -> Command2
 		#Separate both sides of the pipe
 		split_pipe_sides = path.index("|")
+		pip_write = [0:split_pipe_sides] #left side
+		pip_read = [split_pipe_sides + 1:] #right side
 		
 		
 		
