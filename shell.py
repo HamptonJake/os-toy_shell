@@ -45,8 +45,23 @@ while True:
 		#Command1 -> Command2
 		#Separate both sides of the pipe
 		split_pipe_sides = path.index("|")
-		pip_write = [0:split_pipe_sides] #left side
-		pip_read = [split_pipe_sides + 1:] #right side
+		pip_write = path[0:split_pipe_sides] #for writing
+		pip_read = path[split_pipe_sides + 1:] #for reading
+		# file descriptors r, w for reading and writing
+		pip_r, pip_w = os.pipe() 
+		
+		#create the child process
+		the_fork = os.fork()
+		#This method returns an integer value representing child’s process id in the parent process while 0 in the child process.
+		
+		if the_fork = 0:
+			#Child write
+			
+			
+		if the_fork > 0:
+			#Child read
+			
+			
 		
 		
 		
