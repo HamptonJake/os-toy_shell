@@ -56,10 +56,7 @@ while True:
 		
 		
 		if the_fork = 0:
-			duplicate_fd = pip_w
-			os.close(1)
-			os.dup(duplicate_fd)
-			os.set_inheritable(1, True)
+			
 			
 			#Does not work
 			for fd in (pip_r, pip_w):
@@ -69,7 +66,7 @@ while True:
 			
 		elif the_fork > 0:
 			#Not child
-			duplicate_fd = pip_r
+			
 			
 		else:
 			#Fork error
