@@ -45,22 +45,35 @@ while True:
 		#Command1 -> Command2
 		#Separate both sides of the pipe
 		split_pipe_sides = path.index("|")
-		pip_write = path[0:split_pipe_sides] #for writing
-		pip_read = path[split_pipe_sides + 1:] #for reading
+		pip_write_path = path[0:split_pipe_sides] #for writing
+		pip_read_path = path[split_pipe_sides + 1:] #for reading
 		# file descriptors r, w for reading and writing
 		pip_r, pip_w = os.pipe() 
 		
 		#create the child process
 		the_fork = os.fork()
-		#This method returns an integer value representing child’s process id in the parent process while 0 in the child process.
+		#This method returns an integer value representing child’s process id in the parent process while 0 in the child process. (geeksforgeeks)
+		
 		
 		if the_fork = 0:
-			#Child write
+			duplicate_fd = pip_w
+			os.close(1)
+			os.dup(duplicate_fd)
+			os.set_inheritable(1, True)
+			
+			#Does not work
+			for fd in (pip_r, pip_w):
+				os.execve
+			sys.exit(1)
 			
 			
-		if the_fork > 0:
-			#Child read
+		elif the_fork > 0:
+			#Not child
+			duplicate_fd = pip_r
 			
+		else:
+			#Fork error
+			sys.exit(1)
 			
 		
 		
